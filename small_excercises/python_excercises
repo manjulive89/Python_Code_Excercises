@@ -1,0 +1,132 @@
+#!/usr/bin/env python3.6
+
+# Python Excercises
+# Type in the name of the excercise to activate it
+
+print("Excercises: list_less_than\ndivisors\nlist_overlap\nfibonacci\nstudent_register\npalindrome\nreverse_word_order")
+
+def excercises(excercise):
+    
+    # List elements smaller than the one given by the user
+    # Excercise name= list_less_than
+    def list_less_than(user_number):
+
+        a = [1,2,3,4,5,6,7,35,31,567,7,5,31,1]
+        b = []
+
+        try:
+            user_number = int(user_number)
+        except:
+            print("Enter only digits ")
+
+        for number in a:
+            if number < user_number:
+                b.append(number)
+        print(sorted(b))
+
+    
+    # Ask the user for a number and print out all the divisors
+    # excercise name= divisors
+    def divisors(user_number):
+        divisors_list = []
+        for number in range(1,user_number + 1):
+            if user_number % number == 0:
+                divisors_list.append(number)
+        print(f"Divisors of {user_number} are: {divisors_list}")
+
+    # fun that automatically generates two lists of equal 
+    # excercise name= list_overlap
+    def list_overlap():
+        import random
+        random_list_a = random.sample(range(101), 20)
+        random_list_b = random.sample(range(101), 20)
+        overlapping_list = []
+
+        for number_a in random_list_a:
+            for number_b in random_list_b:
+                if number_a == number_b:
+                    overlapping_list.append(number_a)
+        print(f"List A: {random_list_a}")
+        print(f"List B: {random_list_b}")
+        print(f"Overlaps: {overlapping_list}")
+
+    # fibonacci 
+    # excercise name= fibonacci
+    def fibonacci(user_number):
+        fib_sequence = [0]
+        if user_number == 1:
+            print(fib_sequence)
+        elif user_number == 2:
+            print(fib_sequence.append(1))
+        elif user_number > 2:
+            fib_sequence = [0,1,1]
+            for num in range(user_number - 3):
+                fib_sequence.append(fib_sequence[-2] + fib_sequence[-1])
+        print(fib_sequence)
+
+    # student register to calculate the amount of points each student has
+    # excercise name= student register
+    def student_register():
+        register = {}
+        
+        while True:
+            student_name = input("Enter student's name: ").lower()
+            if student_name == "q":
+                break
+            student_points = int(input("Enter student's points: "))
+            if student_name == "q" or student_points == "q":
+                break
+            if student_name not in register:
+                register.update({student_name : [student_points]})
+            else:
+                register[student_name].append((student_points))
+                list_length = len(register[student_name])
+
+        # Calculate Average points for students and print them out
+        total = 0
+        average = 0
+        for key,value in register.items():
+            total = total + value[0] 
+            average = total / list_length
+            print(f"Name: {key} | Points: {value}")
+            print(f"Average Score: {average}")
+
+    # palindrome
+    # take a word and check whether it's a palindrome, print out whether it is or not.
+    def palindrome(word):
+        word = word.lower()
+        reversed_word = word[::-1]
+        if word == reversed_word:
+            print(f"Palindrome found! {word}")
+        else:
+            print("Palindrome not found")
+
+    # reverse word order 
+    def reverse_word_order(user_sentence):
+        word_list = user_sentence.split()
+        word_list = word_list[::-1]
+        word_list = " ".join(word_list)
+        print(word_list)
+
+    if excercise == "list_less_than":
+        list_less_than(input("Enter a number from 2 to 568: "))
+    elif excercise == "divisors":
+        divisors(int(input("Enter any Integer number: ")))
+    elif excercise == "list_overlap":
+        list_overlap()
+    elif excercise == "fibonacci":
+        fibonacci(int(input("How many Fibonacci numbers to print out: ")))
+    elif excercise == "student_register":
+        student_register()
+    elif excercise == "palindrome":
+        palindrome(input("Enter a word to check if it's a palindrome: "))
+    elif excercise == "reverse_word_order":
+        reverse_word_order(input("Enter a sentence: "))
+    else:
+        print("Excercise not recognised")
+    
+
+
+
+excercises(input("Enter excercise name: ").lower())
+
