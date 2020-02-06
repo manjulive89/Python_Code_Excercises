@@ -12,7 +12,7 @@ class Binary_Search:
 
     def generate_list(self):
         self.list_to_search = random.sample(range(101), 101)
-        sort.self.listen_to_search
+        self.list_to_search.sort()
         print(self.list_to_search)
 		
     def search_list(self,to_find):
