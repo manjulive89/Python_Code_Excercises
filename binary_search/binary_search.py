@@ -11,7 +11,7 @@ class Binary_Search:
         self.list_to_search = []
 
     def generate_list(self):
-        self.list_to_search = random.sample(range(101), 101)
+        self.list_to_search = random.sample(range(101), 50)
         self.list_to_search.sort()
         print(self.list_to_search)
 		
@@ -24,11 +24,11 @@ class Binary_Search:
                 element = True
                 break
             elif to_find > self.list_to_search[half_point]:
-                print("More")
+                del self.list_to_search[:half_point]
             elif to_find < self.list_to_search[half_point]:
-                print("Less")
+                del self.list_to_search[half_point:]
 
 
 search = Binary_Search()
 search.generate_list()
-search.search_list()	
+search.search_list(35)	
