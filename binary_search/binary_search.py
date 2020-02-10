@@ -20,14 +20,16 @@ class Binary_Search:
         while not element:
             half_point = len(self.list_to_search) // 2
             if len(self.list_to_search) == 1:
-                print(self.list_to_search)
-                element = True
+                if to_find == self.list_to_search[0]:
+                    print(self.list_to_search)
+                    element = True
+                else:
+                    print("Element not in the List")
+                    element = True
             elif to_find >= self.list_to_search[half_point]:
                 del self.list_to_search[:half_point]
-                print(self.list_to_search)
             elif to_find < self.list_to_search[half_point]:
                 del self.list_to_search[half_point:]
-                print(self.list_to_search)
 
 search = Binary_Search()
 search.generate_list()
