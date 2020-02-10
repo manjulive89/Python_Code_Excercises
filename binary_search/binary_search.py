@@ -19,20 +19,15 @@ class Binary_Search:
         element = False
         while not element:
             half_point = len(self.list_to_search) // 2
-            if to_find == self.list_to_search[half_point]:
-                print(f"Found at position: {self.list_to_search.index(half_point)}")
-                element = True
-                break
-            elif to_find > self.list_to_search[half_point]:
-                #del self.list_to_search[:half_point]
-                print("MORE")
-                break
+            if len(self.list_to_search) == 1:
+                print(self.list_to_search.index())
+            elif to_find >= self.list_to_search[half_point]:
+                del self.list_to_search[:half_point]
+                print(self.list_to_search)
             elif to_find < self.list_to_search[half_point]:
-                #del self.list_to_search[half_point:]
-                print("LESS")
-                break
-
+                del self.list_to_search[half_point:]
+                print(self.list_to_search)
 
 search = Binary_Search()
 search.generate_list()
-search.search_list(35)	
+search.search_list(70)	
