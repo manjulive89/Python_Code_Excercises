@@ -24,9 +24,13 @@ class Binary_Search:
                 element = True
                 break
             elif to_find > self.list_to_search[half_point]:
-                del self.list_to_search[:half_point]
+                #del self.list_to_search[:half_point]
+                print("MORE")
+                break
             elif to_find < self.list_to_search[half_point]:
-                del self.list_to_search[half_point:]
+                #del self.list_to_search[half_point:]
+                print("LESS")
+                break
 
 
 search = Binary_Search()
