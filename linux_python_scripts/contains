@@ -1,0 +1,13 @@
+#!/usr/bin/env python3.6
+
+'''
+author: Mateusz Maly
+github name: matmaly
+email: mateuszfmaly@gmail.com
+'''
+
+import argparse
+
+parser = argparse.ArgumentParser(description='Seach the British English Alphabet for a word user entered')
+parser.add_argument('--word', '-w'
+
