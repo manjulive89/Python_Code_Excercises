@@ -8,8 +8,9 @@ email: mateuszfmaly@gmail.com
 
 import argparse
 
-parser = argparse.ArgumentParser(description='Seach the British English Alphabet for a word user entered')
-parser.add_argument('filename',help='File with British words')
+parser = argparse.ArgumentParser(description='Seach the chosen language Alphabet for a word user entered')
+parser.add_argument('filename',help='File with the words of the language')
+parser.add_argument('word', type=str, help='word to be searched')
 
 args = parser.parse_args()
 
@@ -23,4 +24,10 @@ else:
         lines = f.readlines()
     
     for line in lines:
-
+        print(line)
+        if line == args.word.lower():
+            result = f"word: {line} found in the dictionary"
+            break
+        else:
+            result = f"word: {line} NOT found in the dictionary"
+    print(result)
