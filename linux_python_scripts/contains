@@ -23,11 +23,8 @@ else:
     with open(args.filename) as f:
         lines = f.readlines()
     
+    result = ""
     for line in lines:
-        print(line)
-        if line == args.word.lower():
+        if line  == args.word:
             result = f"word: {line} found in the dictionary"
-            break
-        else:
-            result = f"word: {line} NOT found in the dictionary"
     print(result)
