@@ -33,4 +33,4 @@ class Binary_Search:
 
 search = Binary_Search()
 search.generate_list()
-search.search_list(70)	
+search.search_list(20)	

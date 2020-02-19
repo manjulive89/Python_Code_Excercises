@@ -9,5 +9,18 @@ email: mateuszfmaly@gmail.com
 import argparse
 
 parser = argparse.ArgumentParser(description='Seach the British English Alphabet for a word user entered')
-parser.add_argument('--word', '-w'
+parser.add_argument('filename',help='File with British words')
+
+args = parser.parse_args()
+
+# check whether file with words exists and can be opened
+try:
+    f = open(args.filename)
+except FileNotFoundError as err:
+    print(f"Error: {err}")
+else:
+    with open(args.filename) as f:
+        lines = f.readlines()
+    
+    for line in lines:
 
