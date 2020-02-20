@@ -22,8 +22,7 @@ except FileNotFoundError as err:
 else:
     with open(args.filename) as f:
         lines = f.readlines()
-    result = ""
     for line in lines:
         if line.strip()  == args.word:
-            result = f"word: {line} found in the dictionary"
+            result = f"word: '{line.strip()}' found in the dictionary"
     print(result)
