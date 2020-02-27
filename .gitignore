@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # Other
-./linux_python_scripts/dummy_data/*
+./linux_python_scripts/dummy_data
