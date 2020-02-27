@@ -24,7 +24,7 @@ else:
         lines = f.readlines()
 
     for line in lines:
-        if line.strip()  == args.word:
+        if line.strip().lower()  == args.word.lower():
             result = f"word: '{args.word}' found in the dictionary"
             break
         else:
