@@ -1,0 +1,27 @@
+#!/usr/bin/env python3.6
+'''
+Description: Python script that asks the user for a file and line number, checks those and returns the file number
+Author: Mateusz Maly
+Email: mateuszfmaly@gmail.com
+github: matmaly
+
+'''
+
+
+import argparse
+
+parser = argparse.ArgumentParser(description="Ask the user for a file and a line number, check if the file exits and print the line ")
+parser.add_argument("filename", help="filename to be printed")
+parser.add_argument("line_number", type=int, help="Line number of the text to be printed")
+
+args = parser.parse_args()
+
+try:
+    f = open(args.filename)
+except FileNotFoundError as err:
+    print(f"Error: {err}"
+else:
+    with open(args.filename) as f:
+
+
+
