@@ -17,18 +17,15 @@ parser.add_argument("line_number", type=int, help="Line number of the text to be
 args = parser.parse_args()
 
 try:
-    f = open(args.filename)
+    f = open(args.filename).readlines()
+    l = f[args.line_number - 1].strip()
+except IndexError as ierr:
+    print("Error: Specified line is not in the file")
 except FileNotFoundError as err:
     print(f"Error: {err}")
 else:
-    with open(args.filename) as f:
-        lines = f.readlines()
-        try:
-            d = lines[args.line_number - 1].strip()
-        except IndexError as ierr:
-            print("Error: Specified line is not in the file")
-        else:
-            print(d)
+        
+    print(l)
 
 
 
