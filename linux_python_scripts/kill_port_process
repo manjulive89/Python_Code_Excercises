@@ -16,13 +16,8 @@ args = parser.parse_args()
 
 proc = subprocess.run(["lsof", "-n", f"-i4TCP:{args.port}"], stdout=subprocess.PIPE)
 
-output = list(proc.stdout.split())
+output = str(proc.stdout.split())
 
-new_list = []
-for x in output:
-    new_list.append(str(x))
-
-print(new_list)
 print(args.port)
 
 print(output)
