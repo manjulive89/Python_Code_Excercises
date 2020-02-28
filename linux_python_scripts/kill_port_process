@@ -18,9 +18,11 @@ proc = subprocess.run(["lsof", "-n", f"-i4TCP:{args.port}"], stdout=subprocess.P
 
 output = list(proc.stdout.split())
 
+new_list = []
 for x in output:
-    print(x)
+    new_list.append(str(x))
 
+print(new_list)
 print(args.port)
 
 print(output)
