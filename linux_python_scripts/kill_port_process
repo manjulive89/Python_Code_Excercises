@@ -16,7 +16,11 @@ args = parser.parse_args()
 
 proc = subprocess.run(["lsof", "-n", f"-i4TCP:{args.port}"], stdout=subprocess.PIPE)
 
-output = str(proc.stdout.split())
+output = proc.stdout.split()
+
+for x in output:
+    if str(x) == "b'*:5500'":
+        print("YAAAS")
 
 print(args.port)
 
