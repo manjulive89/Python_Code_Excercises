@@ -14,10 +14,10 @@ parser.add_argument("port", type=int, help="Port number to kill")
 
 args = parser.parse_args()
 
-subprocess.run(["lsof", "-n", "-i4TCP"], stdout=subprocess.PIPE)
+proc = subprocess.run(["lsof", "-n", f"-i4TCP:{args.port}"], stdout=subprocess.PIPE)
 
 output = proc.stdout
 
 print(args.port)
 
-print(output)
+print(output.split())
