@@ -18,9 +18,10 @@ proc = subprocess.run(["lsof", "-n", f"-i4TCP:{args.port}"], stdout=subprocess.P
 
 output = str(proc.stdout).split()
 
-for x in output:
-    if str(x) == "b'*:5500'":
-        print("YAAAS")
+for x in range(len(output)):
+    print(output[x][1:-4])
+    if output[x][1:-4] == "LISTEN":
+        print(f"Yes : {output[x]}")
 
 print(args.port)
 
