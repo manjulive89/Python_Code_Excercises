@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 class Account():
-    def __init__(self, owner, balance):
+    def __init__(self, owner, balance=0):
         self.owner = owner
         self.balance = int(balance)
     
